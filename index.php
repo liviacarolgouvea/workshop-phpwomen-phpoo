@@ -11,8 +11,10 @@ ini_set('display_errors', 1);
 </head>
 <body>
     <?php
+    require './Pessoa.php';
     require './Estudante.php';
-    $estudante = new Estudante();
+    require './Professor.php';
+    $estudante = new Estudante('Maria', '9895-4258', 'maria@maria.com');
     echo $estudante->disciplinasMatriculadas();
     ?>
 
@@ -24,6 +26,26 @@ ini_set('display_errors', 1);
 
     $ira2 = $estudante->atualizaIRA(5);
     echo "Novo IRA {$ira2} <br>";
+    ?>
+
+    <br><hr>
+
+    <?php
+        $estudante->nome = 'Maria';
+        $estudante->matricula = '999999999';
+        $dadosEstudante = $estudante->verEstudante();
+        foreach ($dadosEstudante as $key => $value) {
+            echo "{$key}: {$value} <br>";
+        }
+
+        //$estudante->inserirDados();
+    ?>
+
+    <br><hr>
+
+    <?php
+    $professor = new Professor('José', '9853-7541', 'jose@jose.com.br');
+    $professor->criaProfessor('PHP OO', '4.000');
     ?>
 </body>
 </html>
