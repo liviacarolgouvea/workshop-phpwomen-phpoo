@@ -1,6 +1,6 @@
 <?php
 
-class Estudante
+class Estudante extends Pessoa
 {
     public $matricula;
     public $ira;
@@ -14,5 +14,14 @@ class Estudante
     {
         $this->ira += $nota;
         return $this->ira;
+    }
+
+    public function verEstudante():array
+    {
+        $dados['Nome'] = $this->nome;
+        $dados['Matricula'] = $this->matricula;
+        $dados['IRA'] = $this->ira; 
+
+        return $dados;
     }
 }
